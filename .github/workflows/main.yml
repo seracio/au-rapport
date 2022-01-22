@@ -1,6 +1,5 @@
 ---
 name: Search-and-Tweet
-
 on:
   push:
     branches:
@@ -22,6 +21,11 @@ jobs:
           environment-file: environment.yml
           python-version: 3.8
       - name: Execute notebook
+        env:
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_KEY: ${{ secrets.TWITTER_ACCESS_KEY }}
+          TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
         shell: bash -l {0}
         run: |
           conda activate jupyter-actions
