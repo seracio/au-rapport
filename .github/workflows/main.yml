@@ -5,15 +5,13 @@ on:
   schedule:
     - cron: "* 1 * * *"
 jobs:
-
   search-and-tweet:
     runs-on: ubuntu-latest
     steps:
       - name: 🍽️ Get working copy
         uses: actions/checkout@master
         with:
-          fetch-depth: 1  
-    steps:      
+          fetch-depth: 1
       - name: 🐍 Install conda environment
         uses: conda-incubator/setup-miniconda@v2
         with:
@@ -28,7 +26,7 @@ jobs:
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
-          author_name: Nicolas Mondon 
+          author_name: Nicolas Mondon
           author_email: nicolasmondon@gmail.com
           message: "Update [action]"
           add: "notebooks/ris.csv"
