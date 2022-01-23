@@ -36,4 +36,4 @@ jobs:
           author_name: Nicolas Mondon
           author_email: nicolasmondon@gmail.com
           message: "Update [action]"
-          add: "notebooks"
+          add: "notebooks data"

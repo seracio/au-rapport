@@ -19,5 +19,3 @@
 - Rapports législatifs
 - Rapports des délégations
 - Rapports des offices
-
-### ~~Sauvegarde des rapports~~
