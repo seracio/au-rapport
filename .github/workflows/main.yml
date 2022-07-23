@@ -30,6 +30,7 @@ jobs:
         run: |
           conda activate jupyter-actions
           jupyter nbconvert --execute --clear-output --ExecutePreprocessor.kernel_name=python3 notebooks/retrieve.ipynb
+          jupyter nbconvert --execute --clear-output --ExecutePreprocessor.kernel_name=python3 notebooks/retrieve-senat.ipynb
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
