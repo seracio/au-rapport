@@ -26,14 +26,14 @@ jobs:
           TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
           TWITTER_ACCESS_KEY: ${{ secrets.TWITTER_ACCESS_KEY }}
           TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
-        run: python notebooks/assemblee.py
+        run: python assemblee.py
       - name: Execute python script for sénat
         env:
           TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
           TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
           TWITTER_ACCESS_KEY: ${{ secrets.TWITTER_ACCESS_KEY }}
           TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
-        run: python notebooks/senat.py
+        run: python senat.py
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
