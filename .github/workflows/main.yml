@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 1
       - name: 🐍 Install python environment
-        - uses: actions/setup-python@v4
+        uses: actions/setup-python@v4
           with:
             python-version: '3.10'
             cache: 'pip' # caching pip dependencies
