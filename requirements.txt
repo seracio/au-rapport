@@ -1,9 +1,9 @@
 nbformat
 nbconvert
-numpy==1.18
-requests==2.24.0
+numpy
+requests
 pytest
-pandas==1.0.3
-tweepy==3.8.0
+pandas
+tweepy
 pathlib
 bs4
