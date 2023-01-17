@@ -14,23 +14,26 @@ jobs:
         uses: actions/checkout@master
         with:
           fetch-depth: 1
-      - name: 🐍 Install conda environment
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          activate-environment: jupyter-actions
-          environment-file: environment.yml
-          python-version: 3.10
-      - name: Execute notebook
+      - name: 🐍 Install python environment
+        - uses: actions/setup-python@v4
+          with:
+            python-version: '3.10'
+            cache: 'pip' # caching pip dependencies
+        - run: pip install -r requirements.txt
+      - name: Execute python script for assemblée nationale
         env:
           TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
           TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
           TWITTER_ACCESS_KEY: ${{ secrets.TWITTER_ACCESS_KEY }}
           TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
-        shell: bash -l {0}
-        run: |
-          conda activate jupyter-actions
-          jupyter nbconvert --execute --clear-output --ExecutePreprocessor.kernel_name=python3 notebooks/retrieve.ipynb
-          jupyter nbconvert --execute --clear-output --ExecutePreprocessor.kernel_name=python3 notebooks/retrieve-senat.ipynb
+        - run: python notebooks/assemblee.py
+      - name: Execute python script for sénat
+        env:
+            TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+            TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+            TWITTER_ACCESS_KEY: ${{ secrets.TWITTER_ACCESS_KEY }}
+            TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+          - run: python notebooks/senat.py
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:

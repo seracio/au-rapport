@@ -1,8 +1,7 @@
-name: jupyter-actions
+name: python-actions
 channels:
   - conda-forge
 dependencies:
-  - jupyter=1.0.0
   - nbformat
   - nbconvert
   - numpy=1.18
