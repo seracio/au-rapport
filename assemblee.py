@@ -188,6 +188,11 @@ for index, row in new_rapports.iterrows():
     if len(tweet) > 280:
         tweet = tweet[0:277] + '...'    
     print(tweet)
-    api.update_status(tweet)
+    try:
+        api.update_status(tweet)
+    except Exception as e:
+        print(e)
+        print("Error during tweet")
+    
 
 
