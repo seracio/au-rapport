@@ -1,0 +1,9 @@
+nbformat
+nbconvert
+numpy==1.18
+requests==2.24.0
+pytest
+pandas==1.0.3
+tweepy==3.8.0
+pathlib
+bs4
