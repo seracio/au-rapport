@@ -134,6 +134,7 @@ pd.concat([old_rapports, new_rapports], ignore_index=True).to_csv('rapports.csv'
 # ## On télécharge les nouveaux fichiers
 
 # %%
+"""
 def get_dir(type: str):
     if type.startswith("Rapport d'information"):
         return "ris"
@@ -141,7 +142,7 @@ def get_dir(type: str):
         return "res"
     else:
         return "raps"
-"""
+
 for index, row in new_rapports.iterrows():
     dir = get_dir(row['rapport_type'])
     file = Path(f'../data/assnat/{dir}/{row["full_id"]}.pdf')
@@ -157,7 +158,7 @@ for index, row in new_rapports.iterrows():
 
 # %%
 try:
-    credentials = json.load(open('../twitter-credentials.json'))
+    credentials = json.load(open('./twitter-credentials.json'))
 except:
     # gh actions secrets
     credentials = {key: os.environ[key] for key in ["TWITTER_API_KEY", "TWITTER_API_SECRET", "TWITTER_ACCESS_KEY", "TWITTER_ACCESS_SECRET"]}
@@ -196,3 +197,5 @@ for index, row in new_rapports.iterrows():
     
 
 
+
+# %%

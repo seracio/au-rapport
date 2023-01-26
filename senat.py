@@ -75,7 +75,7 @@ new_reports_df
 (pd
     .concat([old_reports_df, new_reports_df], ignore_index=True)
     .drop_duplicates(subset=['full_id'])
-    .to_csv('rapports-senat.csv', sep=';', index=False)
+    .to_csv('./rapports-senat.csv', sep=';', index=False)
 )
 
 # %% [markdown]
@@ -95,7 +95,7 @@ for index, row in new_reports_df.iterrows():
 
 # %%
 try:
-    credentials = json.load(open('../twitter-credentials.json'))
+    credentials = json.load(open('./twitter-credentials.json'))
 except:
     # gh actions secrets
     credentials = {key: os.environ[key] for key in ["TWITTER_API_KEY", "TWITTER_API_SECRET", "TWITTER_ACCESS_KEY", "TWITTER_ACCESS_SECRET"]}
